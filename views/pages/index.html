@@ -1,0 +1,92 @@
+<?php
+$last_news = array();
+foreach ($news as $new1 ){
+    $count_news = 0;
+       foreach ($new1 as $new2){
+           $count_news++;
+           $last_news[] = $new2;
+           if ($count_news == 3){
+               break;
+           }
+       }
+    }
+ $news_date = array();
+foreach ($last_news as $key =>$value){
+    $news_date[$key] = $value['date'];
+}
+//arsort($news_date);
+
+array_multisort($news_date, SORT_DESC, $last_news);
+//echo '<pre>';
+//var_dump($news_date);
+//echo '</pre>';
+//echo '<pre>';
+//var_dump($last_news);
+//echo '</pre>';
+?>
+<link rel="stylesheet" href="/webroot/css/style.css">
+<!--<link rel="stylesheet" href="/webroot/css/screen.css">-->
+<script type="text/javascript" src="/webroot/js/jquery.js"></script>
+<script type="text/javascript" src="/webroot/js/easySlider1.5.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#slider").easySlider({
+            auto: true,
+            continuous: true
+        });
+    });
+</script>
+<div id="slider">
+
+    <ul>
+        <?php $count_news = 0;
+        foreach ($last_news as $new_slide){
+        $count_news++;
+         ?>
+            <li><?=$new_slide['date']. ' ' . $new_slide['title_n']?><a href=""><img src="/webroot/img/<?=$new_slide['photo']?>" alt="Слайд-панель last news" /></a></li>
+        <?php
+        if ($count_news == 4){
+        break;
+        }
+        }
+        ?>
+
+
+    </ul>
+</div>
+<div style="margin-top: 20px;">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+
+</div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 content">
+
+
+<?php
+
+foreach($data['pages'] as $page_data) {
+
+    ?>
+
+
+    <a class="category" href="/pages/view/<?=$page_data['alias']?>"><?=$page_data['title']?></a>
+    <br>
+    <?php $count_news = 0;
+    foreach ($news[$page_data['id']] as $news_data) {
+        $count_news++;
+        ?>
+        <p><?=$news_data['date']?>
+            <a class="article" href="/pages/view_news/<?=$page_data['alias']?>/<?=$news_data['alias_n']?>"><?=$news_data['title_n']?></a>
+        </p>
+    <?php
+    if($count_news ==5){
+        break;
+    }
+    }
+}
+
+?>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+
+    </div>
+</div>

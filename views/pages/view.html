@@ -1,0 +1,49 @@
+
+<h1><?=$data['pages']['title']?></h1>
+
+<div>
+    <?php
+    $count_news = count($news[$data['pages']['id']]);
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+    //foreach ($news[$data['pages']['id']] as $news_data) {
+    $end = $page*5 - 1;
+    $bigan = $end - 4;
+    $end  = ($count_news < $end) ? $count_news - 1 : $end;
+
+       for ($i = $bigan; $i <= $end; $i++){
+//           echo '<pre>';
+//           var_dump( $news[$data['pages']['id']][$i]);
+//           echo '</pre>';
+        ?>
+
+       <!--<p><?//=$news_data['date']?>
+            <a class="article" href="/pages/view_news/<//?=$data['pages']['alias']?>/<?//=$news_data['alias_n']?>"><?//=$news_data['title_n']?></a>
+        </p>-->
+           <p><?=$news[$data['pages']['id']][$i]['date']?>
+               <a class="article" href="/pages/view_news/<?=$data['pages']['alias']?>/<?=$news[$data['pages']['id']][$i]['alias_n']?>">
+                   <?=$news[$data['pages']['id']][$i]['title_n']?></a>
+           </p>
+    <?php
+}
+
+
+    $p = new Pagination(array(
+        'itemsCount' => $count_news,
+        'itemsPerPage' => 5,
+        'currentPage' => $page
+    ));
+    ?>
+
+
+
+    <?php foreach ($p->buttons as $button) :
+        if ($button->isActive) : ?>
+            <a href = '?page=<?=$button->page?>'><?=$button->text?></a>
+        <?php else : ?>
+            <span style="color:#555555"><?=$button->text?></span>
+        <?php endif;
+    endforeach;
+?>
+
+</div>

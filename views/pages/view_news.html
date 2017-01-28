@@ -1,0 +1,24 @@
+<?php
+//var_dump($news);
+foreach($news as $key=>$news_page){
+    //echo '2' . $key .'<br>';
+    //var_dump($news_page);
+    foreach ($news_page as $page_news){
+     //   var_dump($page_news);
+
+?>
+<h1><?=$page_news[0]['title_n']?></h1>
+
+
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+    <p><?=$page_news[0]['content']?> </p>
+
+</div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+            <p><img src="/webroot/img/<?=$page_news[0]['photo']?>"> </p>
+
+        </div>
+<?php } }
+?>

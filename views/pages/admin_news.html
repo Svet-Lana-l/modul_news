@@ -1,0 +1,32 @@
+<?php
+//echo '<pre>';
+//var_dump($data['pages']);
+//echo '</pre>';
+//echo '<pre>';
+//var_dump($news[$this->data['pages']['id']]);
+//echo '</pre>';
+
+?>
+<h3>News <?=$data['pages']['title']?></h3><br>
+<table class="table table-striped" style="width: 400px;" >
+  <?php foreach ($news[$this->data['pages']['id']] as $news_data) { ?>
+    <tr>
+      <td><b><?=$news_data['title_n']?></b></td>
+      <td align="right">
+
+        <a href="/admin/pages/edit_news/<?=$data['pages']['id']?>/<?=$news_data['id']?>"><button class="btn btn-primary btn-sm">edit</button> </a>
+
+        <a href="/admin/pages/delete_news/<?=$news_data['id']?>" onclick="return confirmDelete();"><button class="btn btn-warning btn-sm">delete</button> </a>
+      </td>
+    </tr>
+
+  <?php } ?>
+
+
+</table>
+
+<br>
+
+<div>
+  <a href="/admin/pages/add_news/<?=$data['pages']['id']?>"><button class="btn btn-success btn-sm">Add News</button> </a>
+</div>
