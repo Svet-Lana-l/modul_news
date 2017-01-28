@@ -3,9 +3,9 @@
 class PagesController extends Controller
 {
    // protected $news;
-    public function __construct( $data = array(), $news = array())
+    public function __construct( $data = array(), $news = array(), $reklama = array())
     {
-        parent::__construct($data, $news);
+        parent::__construct($data, $news, $reklama);
         $this->model = new Page();
     }
 
@@ -14,7 +14,11 @@ class PagesController extends Controller
         foreach ($this->data['pages'] as $page_tmp){
             $this->news[$page_tmp['id']] = $this->model->getListNews($page_tmp['id']);
         }
-
+        $this->reklama = $this->model->getListReklama();
+//        echo '<pre>';
+//       // print_r(debug_backtrace());
+//        var_dump($this->reklama);
+//        echo '</pre>';
     }
 
     public function view(){
@@ -31,6 +35,7 @@ class PagesController extends Controller
             // echo '</pre>';
 
         }
+
 
     }
     public function view_news(){

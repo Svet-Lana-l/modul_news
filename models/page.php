@@ -15,6 +15,11 @@ class Page extends Model
         $sql = "select * from news  WHERE pages_id = '{$pages_id}' ORDER  BY news.date DESC ";
         return $this->db->query($sql);
     }
+    public function getListReklama(){
+        $sql = 'select * from reklama  WHERE 1';
+        return $this->db->query($sql);
+
+    }
     public function getByNews($pages_id, $alias_n){
         $sql = "select * from news  WHERE pages_id = '{$pages_id}' AND alias_n = '{$alias_n}' limit 1";
         return $this->db->query($sql);

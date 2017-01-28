@@ -61,8 +61,36 @@ form {
 #nextBtn a{
     background:url(../img/btn_next.gif) no-repeat 0 0;
 }
-td {
+.teg {
     padding: 1px 15px;
     color: #8b3c17;
     border-right: darkgrey dashed;
    }
+.reklama {
+    padding: 5px;
+    border: dotted;
+    text-align: center;
+}
+.firma {
+    font-size: large;
+    font-family: "Courier New";
+    color: darkolivegreen;
+}
+.site {
+    font-size: small;
+    font-family: Tahoma;
+    color: gray;
+}
+.service {
+    font-size: 18px;
+    font-family: "Times New Roman";
+    color: black;
+}
+.price {
+    font-size: 14px;
+    color : #0f0f0f;
+}
+.price:hover {
+    font-size: 16px;
+    color : darkblue;
+}

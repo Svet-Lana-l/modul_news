@@ -8,6 +8,8 @@ class View
 
     protected $news;
 
+    protected $reklama;
+
     public static function getDefaultViewPach(){
         $router = App::getRouter();
         if (!$router){
@@ -21,7 +23,7 @@ class View
 
     }
 
-    public function __construct($data = array(), $path = null, $news = array())
+    public function __construct($data = array(), $path = null, $news = array(), $reklama = array())
     {
 
         if (!$path){
@@ -38,6 +40,7 @@ class View
         $this->data = $data;
         $this->path = $path;
        $this->news = $news;
+        $this->reklama = $reklama;
 //        echo '<pre>';
 //        var_dump($news);
 //        echo '</pre>';
@@ -45,7 +48,8 @@ class View
 
     public function render() {
         $data = $this->data;
-        $news =$this->news;
+        $news = $this->news;
+        $reklama = $this->reklama;
 //        echo '<pre>';
 //        var_dump($news);
 //        echo '</pre>';

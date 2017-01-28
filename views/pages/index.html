@@ -18,7 +18,7 @@ foreach ($last_news as $key =>$value){
 
 array_multisort($news_date, SORT_DESC, $last_news);
 //echo '<pre>';
-//var_dump($news_date);
+//var_dump($reklama);
 //echo '</pre>';
 //echo '<pre>';
 //var_dump($last_news);
@@ -56,12 +56,22 @@ array_multisort($news_date, SORT_DESC, $last_news);
     </ul>
 </div>
 <div style="margin-top: 20px;">
+    <script>
+        function price_up(var pric_up) {
+
+        }
+    </script>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
     <table>
         <?php for ($i =0; $i <4; $i++ ){
             ?>
             <tr>
-                <td class="reklama"></td>
+                <td class="reklama">
+                    <p class="firma"><?=$reklama[$i]['firma']?></p>
+                    <p class="site"><?=$reklama[$i]['site']?></p>
+                    <p class="service"><?=$reklama[$i]['goods_service']?></p>
+                    <p class="price" onmouseover="price_up(<?=$reklama[$i]['price']?>)"><?=$reklama[$i]['price']?></p>
+                </td>
             </tr>
        <?php }
         ?>
@@ -96,6 +106,19 @@ foreach($data['pages'] as $page_data) {
 ?>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-
+        <table>
+            <?php for ($i =4; $i <8; $i++ ){
+                ?>
+                <tr>
+                    <td class="reklama">
+                        <p class="firma"><?=$reklama[$i]['firma']?></p>
+                        <p class="site"><?=$reklama[$i]['site']?></p>
+                        <p class="service"><?=$reklama[$i]['goods_service']?></p>
+                        <p class="price" onmouseover="price_up(<?=$reklama[$i]['price']?>)"><?=$reklama[$i]['price']?></p>
+                    </td>
+                </tr>
+            <?php }
+            ?>
+        </table>
     </div>
 </div>

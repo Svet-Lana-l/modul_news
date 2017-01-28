@@ -6,6 +6,8 @@ class Controller
 
     protected $news;
 
+    protected $reklama;
+
     protected $model;
 
     protected $param;
@@ -27,6 +29,15 @@ class Controller
     {
         return $this->news;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getReklama()
+    {
+        return $this->reklama;
+    }
+
     /**
      * @return mixed
      */
@@ -43,10 +54,11 @@ class Controller
         return $this->param;
     }
 
-    public function __construct($data = array(), $news = array())
+    public function __construct($data = array(), $news = array(), $reklama = array())
     {
         $this->data = $data;
         $this->data = $news;
+        $this->reklama = $reklama;
 
         $this->param = App::getRouter()->getParams();
     }

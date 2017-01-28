@@ -37,7 +37,7 @@ class App
 
 
 
-            $view_object = new View($controller_object->getData(), $view_path, $controller_object->getNews());
+            $view_object = new View($controller_object->getData(), $view_path, $controller_object->getNews(), $controller_object->getReklama());
             $content =$view_object->render();
 
 
