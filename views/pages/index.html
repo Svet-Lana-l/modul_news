@@ -43,7 +43,8 @@ array_multisort($news_date, SORT_DESC, $last_news);
         foreach ($last_news as $new_slide){
         $count_news++;
          ?>
-            <li><?=$new_slide['date']. ' ' . $new_slide['title_n']?><a href=""><img src="/webroot/img/<?=$new_slide['photo']?>" alt="Слайд-панель last news" /></a></li>
+            <li><?=$new_slide['date']. ' ' . $new_slide['title_n']?><a href="">
+                    <img src="/webroot/img/<?=$new_slide['photo']?>" alt="Слайд-панель last news" /></a></li>
         <?php
         if ($count_news == 4){
         break;
@@ -56,7 +57,15 @@ array_multisort($news_date, SORT_DESC, $last_news);
 </div>
 <div style="margin-top: 20px;">
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-
+    <table>
+        <?php for ($i =0; $i <4; $i++ ){
+            ?>
+            <tr>
+                <td class="reklama"></td>
+            </tr>
+       <?php }
+        ?>
+    </table>
 </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 content">
 

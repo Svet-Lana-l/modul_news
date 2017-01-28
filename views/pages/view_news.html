@@ -9,16 +9,31 @@ foreach($news as $key=>$news_page){
 ?>
 <h1><?=$page_news[0]['title_n']?></h1>
 
+<div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
-<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <p><?=$page_news[0]['content']?> </p>
 
-    <p><?=$page_news[0]['content']?> </p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 
+        <p><img src="/webroot/img/<?=$page_news[0]['photo']?>"> </p>
+
+    </div>
 </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+<div>
+  <table>
+      <tr>
+          <?php
+            $teg = explode(' ', $page_news[0]['teg']);
+            foreach ($teg as $value){
+                ?>
+                <td> <a href="/pages/view_news_teg/<?=$value?>"><?=$value?></a>  </td>
+                <?php
+            } ?>
 
-            <p><img src="/webroot/img/<?=$page_news[0]['photo']?>"> </p>
-
-        </div>
+      </tr>
+  </table>
+</div>
 <?php } }
 ?>

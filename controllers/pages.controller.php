@@ -51,6 +51,23 @@ class PagesController extends Controller
         }
 
     }
+    public  function  view_news_teg(){
+
+        $param = App::getRouter()->getParams();
+
+        if (isset($param[0])) {
+            $teg = strtolower($param[0]);
+            $this->data['pages'] = $this->model->getList();
+           // $this->data['pages'] = $this->model->getByAlias($alias);
+            $this->news[$teg] = $this->model->getByTeg($teg);
+//            echo '<pre>';
+//            // print_r(debug_backtrace());
+//            var_dump($this->news);
+//             echo '</pre>';
+
+        }
+
+    }
 
     public function admin_index(){
         $this->data['pages'] = $this->model->getList();

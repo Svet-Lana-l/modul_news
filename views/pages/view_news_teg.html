@@ -1,0 +1,26 @@
+
+<?php
+
+foreach ($news as $key=>$page_news){
+  ?>
+
+<h1>List news with teg <?=$key?></h1>
+<?php
+//var_dump($news);
+foreach($page_news as $news_page){
+  foreach($data['pages'] as $value){
+    if($value['id'] == $news_page['pages_id']){
+      $alias = $value['alias'];
+    }
+  }
+
+     ?>
+    <div>
+      <p><?=$news_page['date']?>
+        <a class="article" href="/pages/view_news/<?=$alias?>/<?=$news_page['alias_n']?>">
+          <?=$news_page['title_n']?></a>
+      </p>
+    </div>
+
+  <?php } }
+?>

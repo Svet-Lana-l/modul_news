@@ -7,7 +7,7 @@
 //echo '</pre>';
 
 ?>
-<h3>News <?=$data['pages']['title']?></h3><br>
+<h3>News <a href="/admin/pages"><?=$data['pages']['title']?></a> </h3><br>
 <table class="table table-striped" style="width: 400px;" >
   <?php foreach ($news[$this->data['pages']['id']] as $news_data) { ?>
     <tr>

@@ -11,7 +11,17 @@
   <link rel="stylesheet" href="/webroot/css/style.css">
   <title><?=Config::get('setname')?></title>
 </head>
-<body>
+<script>
+    $(window).on('beforeunload', function(){ return 'Вы действительно хотите покинуть сайт?'; });
+    function new_send() {
+       var answer = confirm("Хотите подписаться на новостную рассылку?");
+        if(answer){
+            var name = prompt("Ваше имя:");
+            var email = prompt("Введите e-mail:");
+        }
+    }
+</script>
+<body onload="setTimeout(new_send, 15000)">
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">

@@ -36,6 +36,13 @@ class Page extends Model
         $result = $this->db->query($sql);
         return isset($result[0]) ? $result[0] : null;
     }
+
+    public function getByTeg($teg) {
+        $teg = $this->db->escape($teg);
+        $sql = "select * from news WHERE locate('{$teg}',teg) > 0 ";
+        return $this->db->query($sql);
+    }
+
     public function save($data, $id = null) {
         if (!isset($data['alias']) || !isset($data['title']) || !isset($data['content'])) {
             return false;

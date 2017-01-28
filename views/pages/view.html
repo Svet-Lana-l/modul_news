@@ -12,14 +12,9 @@
     $end  = ($count_news < $end) ? $count_news - 1 : $end;
 
        for ($i = $bigan; $i <= $end; $i++){
-//           echo '<pre>';
-//           var_dump( $news[$data['pages']['id']][$i]);
-//           echo '</pre>';
+
         ?>
 
-       <!--<p><?//=$news_data['date']?>
-            <a class="article" href="/pages/view_news/<//?=$data['pages']['alias']?>/<?//=$news_data['alias_n']?>"><?//=$news_data['title_n']?></a>
-        </p>-->
            <p><?=$news[$data['pages']['id']][$i]['date']?>
                <a class="article" href="/pages/view_news/<?=$data['pages']['alias']?>/<?=$news[$data['pages']['id']][$i]['alias_n']?>">
                    <?=$news[$data['pages']['id']][$i]['title_n']?></a>

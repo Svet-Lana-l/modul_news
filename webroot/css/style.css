@@ -61,6 +61,8 @@ form {
 #nextBtn a{
     background:url(../img/btn_next.gif) no-repeat 0 0;
 }
-.content {
-
-}
+td {
+    padding: 1px 15px;
+    color: #8b3c17;
+    border-right: darkgrey dashed;
+   }
